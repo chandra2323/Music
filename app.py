@@ -4,12 +4,13 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import os
 
-# Konfigurasi Spotify API
-CLIENT_ID = "432e337bb7004e36afbfaea15f4eb151"
-CLIENT_SECRET = "f957c80e9b0a47f389716d8a09f75544"
+CLIENT_ID = st.secrets["CLIENT_ID"]
+CLIENT_SECRET = st.secrets["CLIENT_SECRET"]
 
-# Inisialisasi klien Spotify
-client_credentials_manager = SpotifyClientCredentials(client_id=CLIENT_ID, client_secret=CLIENT_SECRET)
+client_credentials_manager = SpotifyClientCredentials(
+    client_id=CLIENT_ID,
+    client_secret=CLIENT_SECRET
+)
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
 def get_song_album_cover_url(song_name, artist_name):
